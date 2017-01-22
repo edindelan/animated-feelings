@@ -7,7 +7,7 @@ class Level extends Component {
         return (
             <div className="tube-wrapper">
                     <div className="tube">
-                        <div className={"liquid " + levelName + ' ' + animate} style={{top: percentage + '%'}}>
+                        <div className={"liquid " + levelName + ' ' + animate} style={{top: (100 - percentage) + '%'}}>
                             <div className="bubble circle"></div>
                             <div className="bubble circle2"></div>
                             <div className="bubble circle3"></div>
@@ -89,6 +89,7 @@ class Level extends Component {
                         <div className="side-line"></div>
                         <div className="neck"></div>
                         <div className="head"></div>
+                        <div className="tail"></div>
                     </div>
                 <span className="level-name">{this.props.levelName}</span>
             </div>
@@ -102,28 +103,37 @@ class App extends Component {
         animate: ''
     };
 
-    getFeelings = () => [{
+    getFeelings = () => [
+        {
             feeling: 'love',
             levels: {
-                dopamine: 0,
-                serotonin: 0,
-                oxytocin: 0
+                dopamine: 92,
+                serotonin: 92,
+                oxytocin: 92
             }
         },
         {
             feeling: 'depression',
             levels: {
-                dopamine: 10,
-                serotonin: 10,
-                oxytocin: 10
+                dopamine: 27,
+                serotonin: 13,
+                oxytocin: 2
+            }
+        },
+        {
+            feeling: 'happiness',
+            levels: {
+                dopamine: 4,
+                serotonin: 100,
+                oxytocin: 7
             }
         },
         {
             feeling: 'anxiety',
             levels: {
-                dopamine: 40,
-                serotonin: 30,
-                oxytocin: 60
+                dopamine: 18.5,
+                serotonin: 2,
+                oxytocin: 2
             }
         }
     ];
