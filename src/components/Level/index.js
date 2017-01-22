@@ -13,6 +13,9 @@ class Level extends Component {
                         <div className="bubble circle4"></div>
                         <div className="bubble circle5"></div>
                         <div className="bubble circle6"></div>
+                        <div className="bubble circle7"></div>
+                        <div className="bubble circle8"></div>
+                        <div className="bubble circle9"></div>
                     </div>
                     <div className="metrics">
                         <div className="line"></div>
