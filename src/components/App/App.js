@@ -76,6 +76,7 @@ class App extends Component {
                 <div className="tubes-wrapper">
                     { Object.keys(levels).map((level, index) => <Level key={index} animate={animate} levelName={level} percentage={levels[level]}></Level>) }
                 </div>
+                <a className="source-link" target="_blank" href="https://github.com/edindelan/animated-feelings">Source code - GitHub</a>
             </div>
         );
     }
