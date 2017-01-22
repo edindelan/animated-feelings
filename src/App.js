@@ -160,8 +160,8 @@ class App extends Component {
 
         return (
             <div className="App">
+                <h3>{feelingName}</h3>
                 <div className="tubes-wrapper">
-                    <h3>{feelingName}</h3>
                     { Object.keys(levels).map((level, index) => <Level key={index} ani={animate} levelName={level} value={levels[level]}></Level>) }
                 </div>
             </div>
