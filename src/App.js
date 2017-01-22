@@ -7,12 +7,12 @@ class Level extends Component {
             <div className="tube-wrapper">
                     <div className="tube">
                         <div className={"liquid " + this.props.levelName + ' ' + this.props.ani} style={{top: this.props.value + '%'}}>
-                            <div className="circle"></div>
-                            <div className="circle2"></div>
-                            <div className="circle3"></div>
-                            <div className="circle4"></div>
-                            <div className="circle5"></div>
-                            <div className="circle6"></div>
+                            <div className="bubble circle"></div>
+                            <div className="bubble circle2"></div>
+                            <div className="bubble circle3"></div>
+                            <div className="bubble circle4"></div>
+                            <div className="bubble circle5"></div>
+                            <div className="bubble circle6"></div>
                         </div>
                         <div className="metrics">
                             <div className="line"></div>
@@ -160,7 +160,7 @@ class App extends Component {
 
         return (
             <div className="App">
-                <h3>{feelingName}</h3>
+                <h1>{feelingName}</h1>
                 <div className="tubes-wrapper">
                     { Object.keys(levels).map((level, index) => <Level key={index} ani={animate} levelName={level} value={levels[level]}></Level>) }
                 </div>
