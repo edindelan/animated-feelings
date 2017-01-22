@@ -89,7 +89,6 @@ class Level extends Component {
                         <div className="side-line"></div>
                         <div className="neck"></div>
                         <div className="head"></div>
-                        <div className="tail"></div>
                     </div>
                 <span className="level-name">{this.props.levelName}</span>
             </div>
