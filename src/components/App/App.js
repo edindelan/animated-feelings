@@ -76,7 +76,7 @@ class App extends Component {
         const levels = feeling.levels;
         return (
             <div className="App">
-                <h1>{feelingName}</h1>
+                <h1 className={animate}>{feelingName}</h1>
                 <div className="tubes-wrapper">
                     { Object.keys(levels).map((level, index) => <Level key={index} animate={animate} levelName={level}
                                                                        percentage={levels[level]}></Level>) }
