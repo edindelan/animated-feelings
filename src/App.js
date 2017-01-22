@@ -3,10 +3,11 @@ import './App.css';
 
 class Level extends Component {
     render() {
+        const {levelName, animate, percentage} = this.props;
         return (
             <div className="tube-wrapper">
                     <div className="tube">
-                        <div className={"liquid " + this.props.levelName + ' ' + this.props.ani} style={{top: this.props.value + '%'}}>
+                        <div className={"liquid " + levelName + ' ' + animate} style={{top: percentage + '%'}}>
                             <div className="bubble circle"></div>
                             <div className="bubble circle2"></div>
                             <div className="bubble circle3"></div>
@@ -129,21 +130,16 @@ class App extends Component {
 
     changeFeeling() {
         let i = 0;
-
         setInterval(() => { 
-            var start = Date.now();
-            console.log("start",start);
+            let start = Date.now();
             this.setState({feelingIndex: i, animate: 'animate'});
             i++;
             if (i === this.getFeelings().length) i = 0;
             setTimeout(() => {
-                var estimate = Date.now() - start;
-                console.log("end", estimate);
-                if(estimate > 3950){
-                    this.setState({animate:''})
-                    // console.log(this);
+                let end = Date.now() - start;
+                if(end > 3950){
+                    this.setState({animate:''});
                 }
-                
             }, 4000)
         }, 4500, true);
     };
@@ -157,12 +153,11 @@ class App extends Component {
         const feeling = this.getFeelings()[feelingIndex];
         const feelingName = feeling.feeling;
         const levels = feeling.levels;
-
         return (
             <div className="App">
                 <h1>{feelingName}</h1>
                 <div className="tubes-wrapper">
-                    { Object.keys(levels).map((level, index) => <Level key={index} ani={animate} levelName={level} value={levels[level]}></Level>) }
+                    { Object.keys(levels).map((level, index) => <Level key={index} animate={animate} levelName={level} percentage={levels[level]}></Level>) }
                 </div>
             </div>
         );
