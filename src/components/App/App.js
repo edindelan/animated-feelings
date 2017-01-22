@@ -3,11 +3,11 @@ import Level from '../Level';
 import './App.css';
 
 
-
 class App extends Component {
     state = {
-         feelingIndex: 0,
-        animate: ''
+        feelingIndex: 0,
+        animate: '',
+        current: 0
     };
 
     getFeelings = () => [
@@ -45,24 +45,28 @@ class App extends Component {
         }
     ];
 
-    changeFeeling() {
-        let i = 0;
-        setInterval(() => { 
-            let start = Date.now();
-            this.setState({feelingIndex: i, animate: 'animate'});
-            i++;
-            if (i === this.getFeelings().length) i = 0;
-            setTimeout(() => {
-                let end = Date.now() - start;
-                if(end > 3950){
-                    this.setState({animate:''});
-                }
-            }, 4000)
-        }, 4500, true);
-    };
+    changeFeeling = () => {
+        let start = Date.now();
+        this.setState({feelingIndex: this.state.current, animate: 'animate'});
+        this.setState({current: this.state.current + 1});
+        if (this.state.current === this.getFeelings().length) {
+            this.setState({current: 0});
+        }
+        setTimeout(() => {
+            let end = Date.now() - start;
+            if (end > 3950) {
+                this.setState({animate: ''});
+            }
+        }, 4000)
+    }
+
+    setInterval = () => {
+        this.changeFeeling();
+        setInterval(this.changeFeeling, 4500);
+    }
 
     componentDidMount() {
-        this.changeFeeling();
+        this.setInterval();
     }
 
     render() {
@@ -74,9 +78,11 @@ class App extends Component {
             <div className="App">
                 <h1>{feelingName}</h1>
                 <div className="tubes-wrapper">
-                    { Object.keys(levels).map((level, index) => <Level key={index} animate={animate} levelName={level} percentage={levels[level]}></Level>) }
+                    { Object.keys(levels).map((level, index) => <Level key={index} animate={animate} levelName={level}
+                                                                       percentage={levels[level]}></Level>) }
                 </div>
-                <a className="source-link" target="_blank" href="https://github.com/edindelan/animated-feelings">Source code - GitHub</a>
+                <a className="source-link" target="_blank" href="https://github.com/edindelan/animated-feelings">Source
+                    code - GitHub</a>
             </div>
         );
     }
