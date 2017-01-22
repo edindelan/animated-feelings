@@ -107,23 +107,23 @@ class App extends Component {
         {
             feeling: 'love',
             levels: {
-                dopamine: 92,
-                serotonin: 92,
-                oxytocin: 92
+                dopamine: 93,
+                serotonin: 93,
+                oxytocin: 93
             }
         },
         {
             feeling: 'depression',
             levels: {
-                dopamine: 27,
-                serotonin: 13,
-                oxytocin: 2
+                dopamine: 28,
+                serotonin: 14,
+                oxytocin: 3
             }
         },
         {
             feeling: 'happiness',
             levels: {
-                dopamine: 4,
+                dopamine: 3,
                 serotonin: 100,
                 oxytocin: 7
             }
@@ -131,9 +131,9 @@ class App extends Component {
         {
             feeling: 'anxiety',
             levels: {
-                dopamine: 18.5,
-                serotonin: 2,
-                oxytocin: 2
+                dopamine: 20,
+                serotonin: 3,
+                oxytocin: 3
             }
         }
     ];
